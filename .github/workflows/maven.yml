@@ -1,5 +1,7 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+# The stage has been changed to Verify, the original code is:
+# run: mvn -B package --file pom.xml
 
 name: Java CI with Maven
 
@@ -17,6 +19,5 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-        cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B -e verify
