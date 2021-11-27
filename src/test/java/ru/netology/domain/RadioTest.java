@@ -6,21 +6,42 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
 
+/* the two following tests are not needed
+    @Test
+    void shouldSetMaxStationNumber() {
+        Radio number = new Radio();
+        number.setMaxStationNumber(20);
+        int expected = 20;
+        int actualMaxStationNumber = number.getStationsMaxNumber();
+        assertEquals(expected, actualMaxStationNumber);
+    }
 
+    @Test
+    void shouldGetMaxStationNumber() {
+        Radio number = new Radio(10);
+        int expected = 10;
+        int actualMaxStationNumber = number.getStationsMaxNumber();
+        assertEquals(expected, actualMaxStationNumber);
+    }
+*/
+// the setter setMaxStationNumber and the getter are under test
     @Test
     void shouldSetCurrentStationToZero() {
         Radio station = new Radio();
-        station.setCurrentStation(10);
+        station.setMaxStationNumber(11);
+        int highestNumber = station.getStationsMaxNumber();
+        station.setCurrentStation(highestNumber + 1);
         int expected = 0;
         int actualNewCurrentStation = station.getCurrentStation();
         assertEquals(expected, actualNewCurrentStation);
     }
 
+// testing the constructor with one arg Radio(int maxStationNumber)
     @Test
-    void shouldSetCurrentStationToNine() {
-        Radio station = new Radio();
+    void shouldSetCurrentStationToMaxNumber() {
+        Radio station = new Radio(20);
         station.setCurrentStation(-1);
-        int expected = 9;
+        int expected = 20;
         int actualNewCurrentStation = station.getCurrentStation();
         assertEquals(expected, actualNewCurrentStation);
     }
@@ -70,10 +91,10 @@ class RadioTest {
     @Test
     void increaseVolumeInvalid() {
         Radio station = new Radio();
-        station.setCurrentVolume(11);
+        station.setCurrentVolume(110);
         station.increaseVolume();
         int actualIncreasedVolume = station.getCurrentVolume();
-        int expected = 10;
+        int expected = 100;
         assertEquals(expected, actualIncreasedVolume);
     }
 
