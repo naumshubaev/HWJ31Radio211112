@@ -6,24 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
 
-/* the two following tests are not needed
-    @Test
-    void shouldSetMaxStationNumber() {
-        Radio number = new Radio();
-        number.setMaxStationNumber(20);
-        int expected = 20;
-        int actualMaxStationNumber = number.getStationsMaxNumber();
-        assertEquals(expected, actualMaxStationNumber);
-    }
-
-    @Test
-    void shouldGetMaxStationNumber() {
-        Radio number = new Radio(10);
-        int expected = 10;
-        int actualMaxStationNumber = number.getStationsMaxNumber();
-        assertEquals(expected, actualMaxStationNumber);
-    }
-*/
 // the setter setMaxStationNumber and the getter are under test
     @Test
     void shouldSetCurrentStationToZero() {
