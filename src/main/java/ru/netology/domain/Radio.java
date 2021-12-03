@@ -1,8 +1,8 @@
-package ru.netology.domain; // upd211126 v2
+package ru.netology.domain; // upd211203 v2.1
 
 public class Radio {
     private int currentStation = 0;
-    private int maxStationNumber = 9;
+    private int maxStationNumber = 10;
     private int currentVolume = 40;
 
     // constructor w/o arguments is needed to use the default values declared above
@@ -49,16 +49,16 @@ public class Radio {
 
     public void setCurrentStation(int newCurrentStation) {
         currentStation = newCurrentStation;
-        if (newCurrentStation > maxStationNumber) {
+        if (newCurrentStation > maxStationNumber - 1) {
             currentStation = 0;
         }
         if (newCurrentStation < 0) {
-            currentStation = maxStationNumber;
+            currentStation = maxStationNumber - 1;
         }
     }
 
     public void switchCurrentStationUp() {
-        if (currentStation < 9) {
+        if (currentStation < maxStationNumber - 1) {
             currentStation++;
         } else {
             currentStation = 0;
@@ -68,11 +68,11 @@ public class Radio {
     public void switchCurrentStationDown() {
         if (currentStation > 0) {
             currentStation--;
-        } else currentStation = 9;
+        } else currentStation = maxStationNumber - 1;
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }

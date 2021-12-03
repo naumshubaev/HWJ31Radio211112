@@ -10,7 +10,7 @@ class RadioTest {
     @Test
     void shouldSetCurrentStationToZero() {
         Radio station = new Radio();
-        station.setMaxStationNumber(11);
+        station.setMaxStationNumber(9);
         int highestNumber = station.getStationsMaxNumber();
         station.setCurrentStation(highestNumber + 1);
         int expected = 0;
@@ -20,10 +20,10 @@ class RadioTest {
 
 // testing the constructor with one arg Radio(int maxStationNumber)
     @Test
-    void shouldSetCurrentStationToMaxNumber() {
+    void shouldSetCurrentStationToMaxIndex() {
         Radio station = new Radio(20);
         station.setCurrentStation(-1);
-        int expected = 20;
+        int expected = 19;
         int actualNewCurrentStation = station.getCurrentStation();
         assertEquals(expected, actualNewCurrentStation);
     }
